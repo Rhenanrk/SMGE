@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>SMGE | Disciplina</title>
+  <title>SMGE | Avaliações</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -243,12 +243,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Disciplina</h1>
+            <h1>Avaliações</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Disciplina</li>
+              <li class="breadcrumb-item active">Avaliações</li>
             </ol>
           </div>
         </div>
@@ -261,36 +261,58 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Disciplinas</h3>
+          <h3 class="card-title">Avaliações</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
               <i class="fa fa-minus"></i></button>
           </div>
         </div>
-        <form role="form">
-          <div class="card-body">
-          
-        
-            <div class="form-group">
-              <label for="disciplina">Disciplina</label>
-              <input type="email" class="form-control" id="disciplina" placeholder="Nome da Disciplina">
-            </div>
-            <div class="form-group">
-              <label for="carga-horaria">Carga Horária</label>
-              <input type="number" class="form-control" id="carga-horaria" placeholder="Carga Horária">
-            </div>
-            <div class="form-group">
-              <label for="media">Média para Aprovação</label>
-              <input type="number" class="form-control" id="media" placeholder="10.0">
-            </div>
-         
-          </div>
-          <!-- /.card-body -->
-          <div class="card-footer">
-            <button type="submit" class="btn btn-block btn-outline-primary">Salvar Disciplina</button>
-          </div>
-        </form>
+        <div class="card-body">
+          <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                <thead>
+                <tr role="row">
+                	<th>Conteúdo</th>
+                	<th>Data da Avaliação</th>
+                	<th>Pontos</th>
+                	<th style="text-align: center;" align="center">Opções</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr role="row" class="odd">
+                  <td class="sorting_1">Capítulos I, II e III</td>
+                  <td>25/03/2018</td>
+          		  <td>8.0</td>
+          		  <td align="center">
+          		  	<a class="btn btn-default" href="form-disciplina.html" title="Editar">
+                  		<i class="fa fa-edit"></i>
+                	</a>
+                	<a class="btn btn-default" title="Excluir">
+                  		<i class="fa fa-trash-o"></i>
+                	</a>
+                  </td>
+                </tr><tr role="row" class="even">
+                  <tr role="row" class="odd">
+                  <td class="sorting_1">Capítulos IV, V e VI</td>
+                  <td>28/06/2018</td>
+                <td>8.0</td>
+    			  <td align="center">
+          		  	<a class="btn btn-default" href="form-disciplina.html" title="Editar">
+                  		<i class="fa fa-edit"></i>
+                	</a>
+                	<a class="btn btn-default" title="Excluir">
+                  		<i class="fa fa-trash-o"></i>
+                	</a>
+                  </td>
+                </tr>
+                </tbody>
+ 
+              </table>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+          <a href="#" class="btn btn-block btn-outline-primary">Nova Avaliações</a>
+        </div>
         <!-- /.card-footer-->
       </div>
       <!-- /.card -->
