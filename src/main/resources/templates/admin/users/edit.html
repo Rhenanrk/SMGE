@@ -1,0 +1,17 @@
+<html layout:decorator="default">
+<div layout:fragment="content">
+	<form method="post" name="comment_form" id="comment_form"
+		action="/admin/users/update" role="form">
+		<div class="form-group">
+			<label for="username">Usuário</label> <input type="text"
+				class="form-control" id="username" name="username"
+				th:value="${user.username}" /> <label for="email">E-mail</label> <input
+				type="email" class="form-control" id="email" name="email"
+				th:value="${user.email}" />
+		</div>
+		<input type="hidden" id="user_id" rows="5" class="form-control"
+			name="user_id" th:value="${user.id}" />
+		<button type="submit" id="submit" class="btn btn-primary">Salvar</button>
+	</form>
+</div>
+</html>

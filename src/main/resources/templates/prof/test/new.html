@@ -1,0 +1,17 @@
+<html layout:decorator="default">
+<div layout:fragment="content">
+	<form method="post" name="comment_form" id="comment_form"
+		action="/prof/test/create" role="form">
+		<div class="form-group">
+			<label for="description">Descrição</label> <input type="text"
+				class="form-control" id="description" name="description" /> <label
+				for="maxGrade">Nota máxima</label> <input type="number" min="0" step="1"
+				class="form-control" id="maxGrade" name="maxGrade" />
+				
+			<label for="expire">Prazo Limite</label> <input type="text"
+				class="form-control input-date datepicker" data-date-format="mm/dd/yyyy" id="expire" name="expire" />
+		</div>
+		<button type="submit" id="submit" class="btn btn-primary">Salvar</button>
+	</form>
+</div>
+</html>

@@ -1,0 +1,36 @@
+<html layout:decorator="default">
+<section layout:fragment="content">
+	<a class="btn btn-primary" href="/admin/discipline/new">Adicionar
+		Nova Disciplina</a>
+
+	<table class="table table-striped" id="disciplines_list">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Atividade</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr data-th-each="discipline : ${disciplines}">
+				<td class="message" data-th-text="${discipline.name}"></td>
+
+				<td><a
+					th:href="@{'/admin/discipline/{id}/delete'(id=${discipline.id})}"
+					class="delete" th:attr="name=${discipline.name}"> <span
+						class="fa-stack"> <i class="fa fa-trash"></i>
+					</span>
+				</a></td>
+
+				<td><a
+					th:href="@{'/admin/discipline/{id}/edit'(id=${discipline.id})}"
+					class="edit" th:attr="name=${discipline.name}"> <span
+						class="fa-stack"> <i class="fa fa-pencil-square-o"></i>
+					</span>
+
+				</a></td>
+			</tr>
+		</tbody>
+	</table>
+</section>
+</html>

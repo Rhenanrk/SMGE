@@ -1,0 +1,15 @@
+<html layout:decorator="default">
+<div layout:fragment="content">
+	<form method="post" name="comment_form" id="comment_form"
+		action="/admin/discipline/update" role="form">
+		<div class="form-group">
+			<label for="message">Disciplina</label>
+			<input type="text" class="form-control" id="name" name="name"
+				th:value="${discipline.name}" />
+		</div>
+		<input type="hidden" id="discipline_id" rows="5" class="form-control"
+			name="discipline_id" th:value="${discipline.id}" />
+		<button type="submit" id="submit" class="btn btn-primary">Salvar</button>
+	</form>
+</div>
+</html>

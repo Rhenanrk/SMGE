@@ -1,0 +1,23 @@
+<html layout:decorator="default">
+<div layout:fragment="content">
+	<form method="post" name="comment_form" id="comment_form"
+		action="/admin/users/create" role="form">
+		<div class="form-group">
+			<label for="name">Usuário</label> <input type="text"
+				class="form-control" id="username" name="username" /> <label
+				for="name">E-mail</label> <input type="email" class="form-control"
+				id="email" name="email" /> <label for="name">Senha</label> <input
+				type="password" class="form-control" id="password" name="password" />
+
+			<label for="day">Acesso</label> <select id="role_id" name="role_id"
+				class="form-control">
+
+				<option data-th-each="role : ${roles}" th:value="${role.id}"
+					th:text="${role.name}"></option>
+
+			</select>
+		</div>
+		<button type="submit" id="submit" class="btn btn-primary">Salvar</button>
+	</form>
+</div>
+</html>

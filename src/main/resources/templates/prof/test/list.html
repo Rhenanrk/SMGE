@@ -1,0 +1,38 @@
+<html layout:decorator="default">
+<section layout:fragment="content">
+	<a class="btn btn-primary" href="/prof/test/new">Adicionar
+		Nova Avaliação</a>
+
+	<table class="table table-striped" id="disciplines_list">
+		<thead>
+			<tr>
+				<th>Descrição</th>
+				<th>Nota Máxima</th>
+				<th>Data Limite</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr data-th-each="test : ${tests}">
+				<td class="message" data-th-text="${test.description}"></td>
+				<td class="message" data-th-text="${test.maxGrade}"></td>
+				<td class="message"
+					data-th-text="${#dates.format(test.expirationDate, 'dd/MM/yyyy')}"></td>
+
+				<td><a th:href="@{'/prof/test/{id}/delete'(id=${test.id})}"
+					class="delete" th:attr="name=${test.description}"> <span
+						class="fa-stack"> <i class="fa fa-trash"></i>
+					</span>
+				</a></td>
+
+				<td><a th:href="@{'/prof/test/{id}/edit'(id=${test.id})}"
+					class="edit" th:attr="name=${test.description}"> <span
+						class="fa-stack"> <i class="fa fa-pencil-square-o"></i>
+					</span>
+
+				</a></td>
+			</tr>
+		</tbody>
+	</table>
+</section>
+</html>

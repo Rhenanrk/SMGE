@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+
+<title>Login</title>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport" />
+
+<link rel="stylesheet" href="../static/css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+
+<link rel="stylesheet" href="../static/css/AdminLTE.min.css"
+	th:href="@{css/AdminLTE.min.css}" />
+
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic" />
+</head>
+
+<body class="hold-transition login-page">
+	<div class="login-box">
+		<div class="login-logo">
+			<a href="#"><b>SMGE</b></a>
+		</div>
+		<!-- /.login-logo -->
+		<div class="login-box-body">
+			<p class="login-box-msg">Efetue o Login para Iniciar</p>
+
+			<div th:if="${param.error}">Invalid username and password.</div>
+			<div th:if="${param.logout}">You have been logged out.</div>
+
+			<form th:action="@{/login}" method="post">
+				<div class="form-group has-feedback">
+					<input type="text" class="form-control" placeholder="Usuário"
+						name="username" />
+				</div>
+				<div class="form-group has-feedback">
+					<input name="password" type="password" class="form-control"
+						placeholder="Senha" />
+				</div>
+				<div class="row">
+
+					<!-- /.col -->
+					<div class="col-xs-12">
+						<button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
+						<a href="#">Esqueci minha senha</a><br />
+					</div>
+					<!-- /.col -->
+				</div>
+			</form>
+
+		</div>
+		<!-- /.login-box-body -->
+	</div>
+	<!-- /.login-box -->
+
+	<script src="../static/js/jquery.min.js" th:src="@{js/jquery.min.js}" />
+	<script src="../static/js/bootstrap.min.js"
+		th:src="@{js/bootstrap.min.js}" />
+</body>
+</html>

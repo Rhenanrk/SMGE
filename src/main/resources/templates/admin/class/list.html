@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html layout:decorator="default">
+<body>
+	<section layout:fragment="content">
+		<a class="btn btn-primary" href="/admin/class/new">Adicionar
+			Nova Turma</a>
+
+		<table class="table table-striped" id="classRooms_list">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Atividade</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-th-each="classRoom : ${classRooms}">
+					<td class="message" data-th-text="${classRoom.name}"></td>
+
+					<td><a
+						th:href="@{'/admin/class/{id}/delete'(id=${classRoom.id})}"
+						class="delete" th:attr="name=${classRoom.name}"> <span
+							class="fa-stack"> <i class="fa fa-trash"></i>
+						</span>
+					</a></td>
+
+					<td><a
+						th:href="@{'/admin/class/{id}/edit'(id=${classRoom.id})}"
+						class="edit" th:attr="name=${classRoom.name}"> <span
+							class="fa-stack"> <i class="fa fa-pencil-square-o"></i>
+						</span>
+
+					</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html layout:decorator="default">
+<div layout:fragment="content">
+	<form method="post" name="comment_form" id="comment_form"
+		action="/admin/timetable/create" role="form">
+
+		<table class="table table-striped" id="classRooms_list">
+			<thead>
+				<tr>
+					<th>Horário</th>
+					<th>Dia da Semana</th>
+					<th>Disciplina</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-th-each="time : ${times}">
+					<td class="message" data-th-text="${time.ordinalTime}"></td>
+					<td class="message" data-th-text="${time.day.dayName}"></td>
+					<td class="message" data-th-text="${time.discipline.name}"></td>
+
+					<td><a
+						th:href="@{'/admin/timetable/{id}/delete'(id=${time.id})}"
+						class="delete"> <span class="fa-stack"> <i
+								class="fa fa-trash"></i>
+						</span>
+					</a></td>
+
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="form-group">
+			<label for="name">Turma</label> <input type="text"
+				class="form-control" id="name" name="name" readonly="true"
+				th:value="${classRoom.name}" /> <label for="ordinal">Horário</label>
+			<select id="ordinal" name="ordinal" class="form-control">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+
+			</select> <label for="day">Dia da Semana</label> <select id="day" name="day"
+				class="form-control">
+
+				<option data-th-each="day : ${days}" th:value="${day.name()}"
+					th:text="${day.dayName}"></option>
+
+			</select> <label for="day">Disciplina</label> <select id="discipline"
+				name="discipline" class="form-control">
+
+				<option data-th-each="discipline : ${disciplines}"
+					th:value="${discipline.id}" th:text="${discipline.name}"></option>
+
+			</select> <input type="hidden" id="classroom_id" rows="5" class="form-control"
+				name="classroom_id" th:value="${classRoom.id}" />
+		</div>
+		<button type="submit" id="submit" class="btn btn-primary">Adicionar
+			Horário</button>
+	</form>
+</div>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html layout:decorator="default">
+<body>
+	<section layout:fragment="content">
+		
+		<table class="table table-striped" id="classRooms_list">
+			<thead>
+				<tr>
+					<th>Nome da Turma</th>
+					<th>Adicionar Horário</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr data-th-each="classRoom : ${classRooms}">
+					<td class="message" data-th-text="${classRoom.name}"></td>
+
+					<td><a
+						th:href="@{'/admin/timetable/{id}/new'(id=${classRoom.id})}"
+						class="edit" th:attr="name=${classRoom.name}"> <span
+							class="fa-stack"> <i class="fa fa-plus-square"></i>
+						</span>
+
+					</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+</body>
+</html>

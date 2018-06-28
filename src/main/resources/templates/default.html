@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>SGME beta</title>
+<!-- Tell the browser to be responsive to screen width -->
+<meta
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	name="viewport" />
+<!-- Bootstrap 3.3.6 -->
+<link rel="stylesheet" href="../static/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+<!-- Font Awesome -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+<!-- Ionicons -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+<!-- Theme style -->
+
+<link rel="stylesheet" href="../static/css/AdminLTE.min.css"
+	th:href="@{/css/AdminLTE.min.css}" />
+	
+<link rel="stylesheet" href="../static/css/jquery-ui-1.9.2.custom.min.css"
+	th:href="@{/css/jquery-ui-1.9.2.custom.min.css}" />
+
+
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+
+		<header class="main-header">
+			<div th:replace="/fragments/header"></div>
+		</header>
+		<!-- Left side column. contains the logo and sidebar -->
+
+		<aside class="main-sidebar">
+			<div th:replace="/fragments/main-sidebar"></div>
+		</aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper">
+
+			<!-- Main content -->
+			<section class="content">
+
+				<div layout:fragment="content"></div>
+
+			</section>
+			<!-- /.content -->
+		</div>
+		<!-- /.content-wrapper -->
+		<footer class="main-footer">
+			<div class="pull-right hidden-xs">
+				<b>Version</b> 2.3.6
+			</div>
+			<strong>Copyright &copy; 2016 <a
+				href="https://github.com/RawSanj" target="_blank">@RawSanj</a>.
+			</strong> All rights reserved.
+		</footer>
+
+		<!-- Control Sidebar -->
+		<aside class="control-sidebar control-sidebar-dark">
+			<div th:replace="/fragments/control-sidebar"></div>
+		</aside>
+	</div>
+	<!-- ./wrapper -->
+
+	<!-- jQuery 2.2.0 -->
+	<script src="../static/js/jquery.min.js" th:src="@{/js/jquery.min.js}" />
+	<!-- jQuery UI 1.11.4 -->
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+	<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+	<script>
+		$.widget.bridge('uibutton', $.ui.button);
+		$( ".input-date" ).datepicker({ dateFormat: 'dd/mm/yy' });
+	</script>
+	<script src="../static/js/bootstrap.min.js"
+		th:src="@{/js/bootstrap.min.js}" />
+	<script src="../static/js/bootstrap-datepicker.min.js"
+		th:src="@{/js/bootstrap-datepicker.min.js}" />
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+
+</body>
+</html>

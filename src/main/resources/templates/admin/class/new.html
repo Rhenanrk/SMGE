@@ -1,0 +1,12 @@
+<html layout:decorator="default">
+<div layout:fragment="content">
+	<form method="post" name="comment_form" id="comment_form"
+		action="/admin/class/create" role="form">
+		<div class="form-group">
+			<label for="name">Turma</label> <input type="text"
+				class="form-control" id="name" name="name" />
+		</div>
+		<button type="submit" id="submit" class="btn btn-primary">Salvar</button>
+	</form>
+</div>
+</html>
