@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html layout:decorator="template">
+<body>
+	<section layout:fragment="content" class="content">
+		<!-- Default box -->
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title">Disciplinas</h3>
+
+				<div class="card-tools">
+					<button type="button" class="btn btn-tool" data-widget="collapse"
+						data-toggle="tooltip" title="Collapse">
+						<i class="fa fa-minus"></i>
+					</button>
+				</div>
+			</div>
+			<div class="card-body">
+				<table id="example2"
+					class="table table-bordered table-hover dataTable" role="grid"
+					aria-describedby="example2_info">
+					<thead>
+						<tr role="row">
+							<th>Nome</th>
+							<th>Carga Horária</th>
+							<th>Média para aprovação</th>
+							<th style="text-align: center;" align="center">Opções</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr data-th-each="discipline : ${disciplines}">
+							<td class="message" data-th-text="${discipline.name}"></td>
+							<td class="message" data-th-text="${discipline.courseLoad}"></td>
+							<td class="message" data-th-text="${discipline.media}"></td>
+
+							<td><a
+								th:href="@{'/disciplinas/{id}/delete'(id=${discipline.id})}"
+								class="delete" th:attr="name=${discipline.name}"> <span
+									class="fa-stack"> <i class="fa fa-trash"></i>
+								</span>
+							</a>
+							<a
+								th:href="@{'/disciplinas/{id}/edit'(id=${discipline.id})}"
+								class="edit" th:attr="name=${discipline.name}"> <span
+									class="fa-stack"> <i class="fa fa-pencil-square-o"></i>
+								</span>
+
+							</a></td>
+
+							
+						</tr>
+					</tbody>
+
+				</table>
+			</div>
+			<!-- /.card-body -->
+			<div class="card-footer">
+				<a th:href="@{'/disciplinas/new/'}"
+					class="btn btn-block btn-outline-primary">Nova Disciplina</a>
+			</div>
+			<!-- /.card-footer-->
+		</div>
+		<!-- /.card -->
+	</section>
+</body>
+</html>

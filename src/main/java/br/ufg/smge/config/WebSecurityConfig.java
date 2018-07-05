@@ -14,27 +14,28 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private UserDetailsService userDetailsService;
+  @Autowired
+  private UserDetailsService userDetailsService;
 
-	@Bean
-	public BCryptPasswordEncoder bCryptPasswordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+  @Bean
+  public BCryptPasswordEncoder bCryptPasswordEncoder() {
+    return new BCryptPasswordEncoder();
+  }
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/css/**", "/js/**", "images/**", "/h2/**").permitAll()
-				.anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll().and().logout()
-				.permitAll();
-		
-		http.csrf().disable();
-		http.headers().frameOptions().disable();
-	}
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http.authorizeRequests()
+        .antMatchers("/dist/**", "/plugins/**", "/css/**", "/js/**", "images/**", "/h2/**")
+        .permitAll().anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll()
+        .and().logout().permitAll();
 
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		//auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
-		auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
-	}
+    http.csrf().disable();
+    http.headers().frameOptions().disable();
+  }
+
+  @Autowired
+  public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+    // auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
+    auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
+  }
 }
