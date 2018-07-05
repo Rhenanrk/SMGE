@@ -40,6 +40,7 @@ public class DisciplineController {
   public ModelAndView create(@RequestParam("disciplina") String name,
       @RequestParam("carga-horaria") String cargaHoraria, @RequestParam("media") String media,
       @RequestParam("discipline_id") String id) {
+    
     if ("".equals(id)) {
       repository.save(new Discipline(name, cargaHoraria, media));
     } else {

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html layout:decorator="template">
+<body>
+	<section layout:fragment="content" class="content">
+		<!-- Default box -->
+		<div class="card">
+			<div class="card-header">
+				<h3 class="card-title">Avaliações</h3>
+
+				<div class="card-tools">
+					<button type="button" class="btn btn-tool" data-widget="collapse"
+						data-toggle="tooltip" title="Collapse">
+						<i class="fa fa-minus"></i>
+					</button>
+				</div>
+			</div>
+			<div class="card-body">
+				<table id="example2"
+					class="table table-bordered table-hover dataTable" role="grid"
+					aria-describedby="example2_info">
+					<thead>
+						<tr role="row">
+							<th>Conteúdo</th>
+							<th>Data da Avaliação</th>
+							<th>Pontos</th>
+							<th style="text-align: center;" align="center">Opções</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr data-th-each="test : ${tests}">
+							<td class="message" data-th-text="${test.description}"></td>
+							<td class="message" data-th-text="${test.maxGrade}"></td>
+							<td class="message"
+								data-th-text="${#dates.format(test.expirationDate, 'dd/MM/yyyy')}"></td>
+
+							<td><a th:href="@{'/avaliacoes/{id}/delete'(id=${test.id})}"
+								class="delete" th:attr="name=${test.description}"> <span
+									class="fa-stack"> <i class="fa fa-trash"></i>
+								</span>
+							</a></td>
+
+							<td><a th:href="@{'/avaliacoes/{id}/edit'(id=${test.id})}"
+								class="edit" th:attr="name=${test.description}"> <span
+									class="fa-stack"> <i class="fa fa-pencil-square-o"></i>
+								</span>
+
+							</a></td>
+						</tr>
+					</tbody>
+
+				</table>
+			</div>
+			<!-- /.card-body -->
+			<div class="card-footer">
+				<a th:href="@{'/avaliacoes/new/'}"
+					class="btn btn-block btn-outline-primary">Nova Avaliação</a>
+			</div>
+			<!-- /.card-footer-->
+		</div>
+		<!-- /.card -->
+	</section>
+</body>
+</html>
+
